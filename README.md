@@ -1,29 +1,29 @@
 # My Personal Hyprland Config
 ## Screenshot
-![screenshot_2024-06-27_15-03-20](https://github.com/HuAi02/hyprland-configs/assets/103740088/8c2e80c4-d3c0-4c09-9963-2f320f3336f0)
+![20241020_01h38m38s_grim](https://github.com/user-attachments/assets/0684afd8-0ec1-4a85-aa0f-4fda3f2ce613)
 
 ## My Setup
 Acer Nitro 5 AN515-55 (Core i5-10300H, Nvidia RTX3060 Mobile, 512GB, 16GB)\
-Arch Linux ([Install guide](https://github.com/powerdollkirby/archinstall))\
-Windows 10 (dual boot)
+Fedora 40 (Gnome base)
+Windows 11 (dual boot)
 
 ## Install Hyprland
 [Guide here](https://wiki.hyprland.org/Getting-Started/Installation/)
 
-## SDDM Theme
+## SDDM Theme (I don't use this now)
 [Aerial Theme](https://github.com/3ximus/aerial-sddm-theme) w/ custom HSR Jingliu live wallpaper
 
 ## Dependencies
 waybar (status bar)\
-swww (wallpaper)\
+hyprpaper (wallpaper)\
 hypridle (idle management)\
-swaylock (lockscreen)\
+hyprlock (lockscreen)\
 wlogout (power menu)\
 nm-applet (WiFi tray icon)\
 blueman-applet (Bluetooth tray icon)\
 brightnessctl (brightness control)\
 wpctl (volume control)\
-auto-cpufreq & powertop (power management)\
+tlp & powertop (power management)\
 fcitx5 & fcitx5-chinese-addon (pinyin input support)\
 grim & slurp (screenshot)
 
