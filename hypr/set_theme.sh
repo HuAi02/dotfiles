@@ -1,5 +1,5 @@
 #!/bin/bash
-. ~/.config/HyprV/set_theme.sh
+. ~/.config/hypr/set_theme.sh
 
 # Set the xfce and GTK theme
 xfconf-query -c xsettings -p /Net/IconThemeName -s "Papirus-Dark"
