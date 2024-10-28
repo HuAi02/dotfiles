@@ -10,19 +10,18 @@ Windows 11 (dual boot)
 ## Install Hyprland
 [Guide here](https://wiki.hyprland.org/Getting-Started/Installation/)
 
-## SDDM Theme (I don't use this now)
-[Aerial Theme](https://github.com/3ximus/aerial-sddm-theme) w/ custom HSR Jingliu live wallpaper
-
 ## Dependencies
 waybar (status bar)\
 hyprpaper (wallpaper)\
 hypridle (idle management)\
 hyprlock (lockscreen)\
 wlogout (power menu)\
+dunst (notification with action prompt)\
 nm-applet (WiFi tray icon)\
 blueman-applet (Bluetooth tray icon)\
 brightnessctl (brightness control)\
 wpctl (volume control)\
+pavucontrol (audio device control)\
 tlp & powertop (power management)\
 fcitx5 & fcitx5-chinese-addon (pinyin input support)\
 grim & slurp (screenshot)
