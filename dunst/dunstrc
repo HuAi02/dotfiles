@@ -68,7 +68,7 @@
     progress_bar_corners = all
 
     # Corner radius for the icon image.
-    icon_corner_radius = 0
+    icon_corner_radius = 15
 
     # Define which corners to round when drawing the icon image. If icon_corner_radius
     # is set to 0 this option will be ignored.
@@ -109,7 +109,7 @@
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
-    gap_size = 0
+    gap_size = 2
 
     # Define a color for the separator.
     # possible values are:
@@ -125,7 +125,7 @@
     #  * urgency_ascending: sort by urgency (low then normal then critical)
     #  * urgency_descending: sort by urgency (critical then normal then low)
     #  * update: sort by update (most recent always at the top)
-    sort = yes
+    sort = update
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -136,7 +136,7 @@
 
     ### Text ###
 
-    font = Inter 12
+    font = Cantarell 11
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -199,7 +199,7 @@
     ignore_newline = no
 
     # Stack together notifications with the same content
-    stack_duplicates = true
+    stack_duplicates = false
 
     # Hide the count of stacked notifications with the same content
     hide_duplicate_count = false
@@ -249,7 +249,7 @@
     ### mouse
     mouse_left_click = open_url, do_action, close_current
     mouse_middle_click = none #close_current is optional
-    mouse_right_click = close_current
+    mouse_right_click = close_all
 
 
 # Experimental features that may or may not work correctly. Do not expect them
@@ -268,14 +268,14 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#282a36"
     foreground = "#6272a4"
-    timeout = 10
+    timeout = 2
     # Icon for notifications with low urgency, uncomment to enable
     #new_icon = /path/to/icon
 
 [urgency_normal]
     background = "#282a36"
     foreground = "#bd93f9"
-    timeout = 10
+    timeout = 3
     # Icon for notifications with normal urgency, uncomment to enable
     #new_icon = /path/to/icon
 
