@@ -1,9 +1,9 @@
-width=600
+width=500
 height=300
 location=center
 show=drun
 prompt=Search...
-filter_rate=100
+filter_rate=5
 allow_markup=true
 no_actions=true
 halign=fill
