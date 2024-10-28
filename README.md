@@ -3,7 +3,7 @@
 ![20241020_01h38m38s_grim](https://github.com/user-attachments/assets/0684afd8-0ec1-4a85-aa0f-4fda3f2ce613)
 
 ## My Setup
-Acer Nitro 5 AN515-55 (Core i5-10300H, Nvidia RTX3060 Mobile, 512GB, 16GB)\
+Acer Nitro 5 AN515-55 (Core i5-10300H, Nvidia RTX3060 Mobile)\
 Fedora 40 (Gnome base)
 Windows 11 (dual boot)
 
@@ -30,12 +30,11 @@ grim & slurp (screenshot)
 Do not toggle mouse suspend to good or you'll suffer
 
 ## For app dark themes:
-nwg-look\
+nwg-look (Arch)\
 lxappearance\
 qt6ct\
 qt5ct\
 xdg-desktop-portal-gtk (for Gnome apps)
 
 ## Grub theme:
-[Arch theme btw](https://github.com/AdisonCavani/distro-grub-themes)\
-grub-customizer
+[Mojave Elegant](https://github.com/vinceliuice/Elegant-grub2-themes)\
