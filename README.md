@@ -37,4 +37,4 @@ qt5ct\
 xdg-desktop-portal-gtk (for Gnome apps)
 
 ## Grub theme:
-[Mojave Elegant](https://github.com/vinceliuice/Elegant-grub2-themes)\
+[Mojave Elegant](https://github.com/vinceliuice/Elegant-grub2-themes)
