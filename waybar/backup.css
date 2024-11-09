@@ -1,0 +1,109 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Roboto Mono Medium";
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+}
+
+window#waybar {
+    background-color: transparent;
+    transition: background-color 0.5s;
+}
+
+label, #workspaces {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    border-radius: 15px;
+}
+
+#workspaces button,
+#workspaces label {
+    background-color: transparent;
+    color: black;
+    border-radius: 15px;
+}
+
+/* #workspaces button.visible * {
+    border-radius: 14px;
+    background-color: black;
+    color: white;
+}
+
+#workspaces button:hover * {
+    border-radius: 14px;
+    background-color: grey;
+    color: white;
+} */
+
+#workspaces button.urgent * {
+    border-radius: 14px;
+    /* background-color: red;
+    color: white; */
+    color: red;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#pulseaudio,
+#backlight,
+#tray,
+#idle_inhibitor,
+#workspaces,
+#window * {
+    padding: 0px 10px;
+    margin: 0px 3px;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#idle_inhibitor,
+#battery {
+    border-radius: 15px;
+}
+
+#battery.charging {
+    color: #ffffff;
+    background-color: #3bce5b;
+}
+
+@keyframes blink {
+    to {
+        background-color: white;
+        color: black;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: red;
+    color: white;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+#tray {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: transparent;
+    border-radius: 15px;
+}
+
+#tray :hover {
+    background-color: rgba(255, 255, 255, 0.0);
+    color: transparent;
+    border-radius: 15px;
+}
+
+#tray * {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.0);
+    border-radius: 5px;
+}
+
+#tray *:hover .menu{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+}
