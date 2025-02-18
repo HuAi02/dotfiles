@@ -48,6 +48,7 @@
         "on-click": "kitty btop"
     },
     "pulseaudio": {
+        "sink": 42,
         "scroll-step": 5, // %, can be a float
         "format": "📢 {volume}% {format_source}",
         "format-muted": "🔇 Muted {format_source}",
