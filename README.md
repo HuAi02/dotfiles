@@ -27,6 +27,7 @@ tlp & powertop
 grim & slurp
 wlpaste
 nemo
+gwenview
 ```
 ## For powertop:
 Do not toggle mouse suspend to good or you'll suffer
@@ -34,10 +35,9 @@ Do not toggle mouse suspend to good or you'll suffer
 ## For app dark themes:
 ```
 nwg-look (Nordic theme, Adwaita icons, BreezeX-RosePine cursor)
-lxappearance (Nordic theme, Adwaita icons, BreezeX-RosePine cursor)
 qt6ct (set to kvantum-dark)
 qt5ct (set color scheme to darker)
-kvantum (Qt, KvArcDark theme)
+kvantum & kvantum-qt5 (Qt, KvArcDark theme)
 xdg-desktop-portal-gtk or xdg-portal-hyprland
 ```
 
