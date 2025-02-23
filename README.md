@@ -1,6 +1,7 @@
 # My Personal Hyprland Config
 ## Screenshot
-![20250220_11h44m47s_grim](https://github.com/user-attachments/assets/6d3eb787-1376-451d-9d1f-71d9dc1eb567)
+![20250223_22h33m57s_grim](https://github.com/user-attachments/assets/5473376f-68c4-49a3-b9a7-027b730dd928)
+
 
 ## My Setup
 [Acer Nitro 5 AN515-55](https://www.notebookcheck.net/Acer-Nitro-5-AN515-55-Laptop-Review-Price-to-performance-champ-with-an-RTX-3060.540607.0.html)\
