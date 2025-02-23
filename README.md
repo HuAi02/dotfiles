@@ -16,7 +16,7 @@ hyprpaper
 hypridle
 hyprlock
 wlogout
-wofi
+tofi (previously wofi)
 dunst
 nm-applet
 blueman-applet
@@ -38,6 +38,8 @@ nwg-look (Nordic theme, Adwaita icons, BreezeX-RosePine cursor)
 qt6ct (set to kvantum-dark)
 qt5ct (set color scheme to darker)
 kvantum & kvantum-qt5 (Qt, KvArcDark theme)
+fluent-gtk-theme
+Fluent KDE (link below)
 xdg-desktop-portal-gtk or xdg-portal-hyprland
 ```
 
@@ -55,3 +57,6 @@ fcitx5-chinese-addon
 
 ## SDDM theme:
 [Astronaut Theme - Hyprland Kath](https://github.com/Keyitdev/sddm-astronaut-theme)
+
+## Fluent KDE theme:
+[Fluent KDE](https://github.com/vinceliuice/Fluent-kde.git)
