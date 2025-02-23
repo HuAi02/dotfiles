@@ -24,7 +24,7 @@ TERM                  = "xterm-256color"
 padding               = { x = 2, y = 2 }
 #dynamic_padding       = true
 decorations           = "None"
-opacity               = 0.85
+opacity               = 1
 blur                  = true
 #startup_mode          = "Windowed"
 #title                 = "Alacritty"
@@ -48,7 +48,7 @@ glyph_offset          = { x = 0, y = 0 }
 
 # catpuccin-mocha, ported from .yml
 [colors.primary]
-background            = "#1E1E2E"
+background            = "#1E1E1E"
 foreground            = "#CDD6F4"
 dim_foreground        = "#CDD6F4"
 bright_foreground     = "#CDD6F4"
