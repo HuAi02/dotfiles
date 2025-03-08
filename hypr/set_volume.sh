@@ -13,5 +13,5 @@ fi
 
 # Example of setting the volume for the microphone to 80%
 if [ -n "$MICROPHONE_ID" ]; then
-    wpctl set-volume $MICROPHONE_ID 80%
+    wpctl set-volume $MICROPHONE_ID 20%
 fi
