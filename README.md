@@ -1,7 +1,6 @@
 # My Personal Hyprland Config
 ## Screenshot
-![20250223_22h33m57s_grim](https://github.com/user-attachments/assets/5473376f-68c4-49a3-b9a7-027b730dd928)
-
+![20250310_02h02m38s_grim](https://github.com/user-attachments/assets/65a1a8ff-8858-4149-9cd5-b579be1d15e8)
 
 ## My Setup
 [Acer Nitro 5 AN515-55](https://www.notebookcheck.net/Acer-Nitro-5-AN515-55-Laptop-Review-Price-to-performance-champ-with-an-RTX-3060.540607.0.html)\
@@ -52,9 +51,6 @@ fcitx5-chinese-addon
 
 ## Grub theme:
 [Mojave Elegant](https://github.com/vinceliuice/Elegant-grub2-themes)
-
-## Waybar theme:
-[Mechabar Animated](https://github.com/sejjy/mechabar)
 
 ## SDDM theme:
 [Astronaut Theme - Hyprland Kath](https://github.com/Keyitdev/sddm-astronaut-theme)
