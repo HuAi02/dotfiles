@@ -100,6 +100,10 @@ packages=(
     # Chinese input
     "fcitx5"
     "fcitx5-chinese-addons"
+
+    # Fonts
+    "adobe-source-code-pro-fonts"
+    "noto-fonts-cjk"
 )
 
 echo "🔍 Checking and installing packages..."
