@@ -1,0 +1,84 @@
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+    font:                        "Source Code Pro 10";
+}
+
+* {
+    main-bg: #22222299;
+    main-fg: #fbf1c7;
+    select-bg: #ffffff4d;
+    select-fg: #FFFFFF;
+}
+
+window {
+    enabled:                     true;
+    fullscreen:                  false;
+    height:                      600px;
+    width:                       800px;
+    transparency:                "real";
+    cursor:                      "default";
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      1px;
+    border-radius:               8px;
+    border-color:                #373737;
+    background-color:            transparent;
+}
+
+mainbox {
+    enabled:                     true;
+    children:                    [ "listview" ];
+    background-color:            @main-bg;
+}
+
+listview {
+    enabled:                     true;
+    layout:                      vertical;  // <- Grid layout
+    columns:                     5;           // <- Number of columns
+    spacing:                     10px;
+    padding:                     10px 10px;
+    cycle:                       false;
+    dynamic:                     false;
+    scrollbar:                   false;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cursor:                      "BreezeX-RosePine-Linux";
+    background-color:            transparent;
+    text-color:                  @main-fg;
+}
+
+element {
+    enabled:                     true;
+    orientation:                 vertical;    // <- Vertical within each item
+    spacing:                     10px;
+    padding:                     10px;
+    border-radius:               12px;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @main-fg;
+}
+
+element selected.normal {
+    background-color:            @select-bg;
+    text-color:                  @select-fg;
+}
+
+element-icon {
+    size:                        125px;       // Size of image preview
+    cursor:                      inherit;
+    border-radius:               8px;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    padding:                     5px;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}

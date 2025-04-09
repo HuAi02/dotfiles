@@ -4,11 +4,9 @@
 if ! command -v yay &> /dev/null; then
     echo "yay not found, installing yay..."
 
-    # Update package database
-    sudo pacman -Sy --noconfirm
-
-    # Install yay from the official Arch repositories
-    sudo pacman -S --noconfirm yay
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
 else
     echo "yay is already installed."
 fi

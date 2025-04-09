@@ -47,7 +47,7 @@
 
     "clock#time": {
         "interval": 1,
-        "format": " {:%H:%M:%S}", // or remove seconds: "{:%H:%M}"
+        "format": " {:%H:%M}", // or remove seconds: "{:%H:%M}"
         "tooltip": false,
         "on-click": "gnome-clocks"
     },
@@ -72,13 +72,13 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": " ",
-            "deactivated": " "
+            "activated": "",
+            "deactivated": ""
         }
     },
 
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 14,
         "spacing": 10
     },
 
@@ -114,13 +114,13 @@
     },
 
     "pulseaudio#speaker": {
-        "scroll-step": 5,
+        "scroll-step": 1,
         "format": "󰕾 {volume}%",
         "format-muted": "󰖁 Muted",
         "on-click": "pamixer --toggle-mute",
         "on-click-right": "pavucontrol -t 3",
-        "on-scroll-up": "pamixer --increase 5",
-        "on-scroll-down": "pamixer --decrease 5",
+        "on-scroll-up": "pamixer --increase 1",
+        "on-scroll-down": "pamixer --decrease 1",
         "tooltip-format": "Speaker | {volume}%"
     },
 
@@ -130,10 +130,10 @@
         "format-source-muted": " Muted",
         "on-click": "pamixer --default-source --toggle-mute",
         "on-click-right": "pavucontrol -t 4",
-        "on-scroll-up": "pamixer --default-source --increase 5",
-        "on-scroll-down": "pamixer --default-source --decrease 5",
+        "on-scroll-up": "pamixer --default-source --increase 1",
+        "on-scroll-down": "pamixer --default-source --decrease 1",
         "tooltip-format": "Microphone | {source_volume}%",
-        "scroll-step": 5
+        "scroll-step": 1
     },
 
     "hyprland/workspaces": {
