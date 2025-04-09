@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Making install scripts executable..."
+chmod +x ./install-scripts/*
+chmod +x ./scripts/*
+
 # Run install_yay.sh
 echo "Running enable-yay.sh..."
 ./install-scripts/enable-yay.sh
