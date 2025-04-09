@@ -28,4 +28,8 @@ echo "Running copy-configs.sh..."
 echo "Running update-locale.sh..."
 ./install-scripts/update-locale.sh
 
+# Run completion.sh
+echo "Running completion.sh..."
+./install-scripts/completion.sh
+
 echo "All scripts executed!"

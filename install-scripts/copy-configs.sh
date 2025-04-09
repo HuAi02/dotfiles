@@ -37,6 +37,7 @@ copy_symlinks() {
         ["qt5ct"]="$HOME/.config/qt5ct"
         ["qt6ct"]="$HOME/.config/qt6ct"
         ["alacritty"]="$HOME/.config/alacritty"
+        ["wlogout"]="$HOME/.config/wlogout"
     )
 
     # Loop through each directory

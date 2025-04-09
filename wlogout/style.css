@@ -1,0 +1,119 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+button {
+    border-radius: 30px;
+    margin: 5px 50px;
+    border-color: rgba(255, 255, 255, 1);
+	text-decoration-color: #ffffff;
+    color: rgba(255, 255, 255, 1);
+	background-color: rgba(0, 0, 0, 0.5);
+	border-style: solid;
+	border-width: 1px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+}
+
+ /* button:hover, button:active button:focus{
+	background-color: rgba(255, 255, 255, 1);
+	border-width: 100px;
+	border-color: white;
+}  */
+
+/* #lock {
+    background-image: image(url("./lock.png"));
+}
+#lock:focus {
+    background-image: image(url("./lock-hover.png"));
+} */
+
+#logout {
+    background-image: image(url("./logout.png"));
+}
+/* #logout:focus {
+    background-image: image(url("./logout-hover.png"));
+    background-color: rgba(255, 255, 255, 1);
+	border-width: 100px;
+	border-color: white;
+} */
+#logout:active {
+    background-image: image(url("./logout-hover.png"));
+    background-color: rgba(255, 255, 255, 1);
+	border-width: 50px;
+	border-color: white;
+    text-decoration-color: #000000;
+}
+#logout:hover {
+    background-image: image(url("./logout-hover.png"));
+    background-color: rgba(255, 255, 255, 1);
+	border-width: 50px;
+	border-color: white;
+    text-decoration-color: #000000;
+}
+
+
+/* #suspend {
+    background-image: image(url("./sleep.png"));
+}
+#suspend:focus {
+    background-image: image(url("./sleep-hover.png"));
+} */
+
+#shutdown {
+    background-image: image(url("./power.png"));
+}
+/* #shutdown:focus {
+    background-image: image(url("./power-hover.png"));
+    background-color: rgba(255, 255, 255, 1);
+	border-width: 100px;
+	border-color: white;
+} */
+#shutdown:active {
+    background-image: image(url("./power-hover.png"));
+    background-color: rgba(255, 255, 255, 1);
+	border-width: 50px;
+	border-color: white;
+    text-decoration-color: #000000;
+}
+#shutdown:hover {
+    background-image: image(url("./power-hover.png"));
+    background-color: rgba(255, 255, 255, 1);
+	border-width: 50px;
+	border-color: white;
+    text-decoration-color: #000000;
+}
+
+#reboot {
+    background-image: image(url("./restart.png"));
+}
+/* #reboot:focus {
+    background-image: image(url("./restart-hover.png"));
+    background-color: rgba(255, 255, 255, 1);
+	border-width: 100px;
+	border-color: white;
+} */
+#reboot:active {
+    background-image: image(url("./restart-hover.png"));
+    background-color: rgba(255, 255, 255, 1);
+	border-width: 50px;
+	border-color: white;
+    text-decoration-color: #000000;
+}
+#reboot:hover {
+    background-image: image(url("./restart-hover.png"));
+    background-color: rgba(255, 255, 255, 1);
+	border-width: 50px;
+	border-color: white;
+    text-decoration-color: #000000;
+}
+
+/* "text" : "Logout",
+"text" : "Reboot",
+"text" : "Shutdown", */
