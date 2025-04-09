@@ -28,7 +28,6 @@ packages=(
     "qt6-virtualkeyboard"
     "qt6-multimedia-ffmpeg"
 
-
     # Hyprland family
     "hyprland"
     "hyprpaper"
@@ -85,6 +84,11 @@ packages=(
     "gnome-clocks"
     "gnome-calendar"
     "btop"
+    "base-devel"
+    "git"
+
+    # Internet
+    "firefox"
 
     # Theming
     "nwg-look"
@@ -96,7 +100,6 @@ packages=(
     "papirus-icon-theme"
     "rose-pine-cursor"
     "rose-pine-hyprcursor"
-
 
     # Chinse input
     "fcitx5"
@@ -111,7 +114,7 @@ for package in "${packages[@]}"; do
     else
         echo "$package is not installed, installing..."
         # First, try installing with pacman
-        if sudo pacman -S --noconfirm "$package"; then
+        if sudo pacman -S --noconfirm --needed "$package"; then
             echo "$package installed with pacman."
         # If pacman fails (e.g., it's an AUR package), try yay
         else
@@ -119,4 +122,17 @@ for package in "${packages[@]}"; do
             yay -S --noconfirm "$package"
         fi
     fi
+
+# Enable and start a service
+SERVICE_NAME="sddm.service"
+
+# Enable the service to start at boot
+sudo systemctl enable "$SERVICE_NAME"
+
+# Optionally start the service immediately
+sudo systemctl start "$SERVICE_NAME"
+
+# Optionally check the status
+sudo systemctl status "$SERVICE_NAME"
+
 done
