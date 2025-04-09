@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Ensure not running as root
+if [ "$EUID" -eq 0 ]; then
+    echo "⚠️  Please do NOT run this script as root."
+    exit 1
+fi
+
 # Function to check if a package is installed using pacman
 is_installed_pacman() {
     pacman -Q "$1" &> /dev/null
@@ -8,16 +14,6 @@ is_installed_pacman() {
 # Function to check if a package is installed using yay (AUR helper)
 is_installed_yay() {
     yay -Q "$1" &> /dev/null
-}
-
-# Function to install a package using pacman
-install_pacman() {
-    sudo pacman -S --noconfirm "$1"
-}
-
-# Function to install a package using yay
-install_yay() {
-    yay -S --noconfirm "$1"
 }
 
 # List of packages to install
@@ -96,43 +92,38 @@ packages=(
     "qt5ct"
     "kvantum"
     "kvantum-qt5"
-    "fluent-gtk-theme" # QT in another script
+    "fluent-gtk-theme"
     "papirus-icon-theme"
     "rose-pine-cursor"
     "rose-pine-hyprcursor"
 
-    # Chinse input
+    # Chinese input
     "fcitx5"
     "fcitx5-chinese-addons"
 )
 
+echo "🔍 Checking and installing packages..."
+
 for package in "${packages[@]}"; do
     if is_installed_pacman "$package"; then
-        echo "$package is already installed with pacman."
+        echo "✅ $package is already installed with pacman."
     elif is_installed_yay "$package"; then
-        echo "$package is already installed with yay."
+        echo "✅ $package is already installed with yay."
     else
-        echo "$package is not installed, installing..."
-        # First, try installing with pacman
+        echo "📦 Installing $package..."
         if sudo pacman -S --noconfirm --needed "$package"; then
-            echo "$package installed with pacman."
-        # If pacman fails (e.g., it's an AUR package), try yay
+            echo "✅ Installed $package with pacman."
         else
-            echo "Package not found in pacman, trying yay..."
+            echo "📦 $package not found in pacman, trying yay..."
             yay -S --noconfirm "$package"
         fi
     fi
-
-# Enable and start a service
-SERVICE_NAME="sddm.service"
-
-# Enable the service to start at boot
-sudo systemctl enable "$SERVICE_NAME"
-
-# Optionally start the service immediately
-sudo systemctl start "$SERVICE_NAME"
-
-# Optionally check the status
-sudo systemctl status "$SERVICE_NAME"
-
 done
+
+echo "🔧 Enabling and starting SDDM service..."
+
+sudo systemctl enable sddm.service
+sudo systemctl start sddm.service
+sudo systemctl status sddm.service
+
+echo "🎉 Setup complete!"
