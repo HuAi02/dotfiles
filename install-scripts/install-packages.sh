@@ -24,11 +24,15 @@ packages=(
     "qt6-virtualkeyboard"
     "qt6-multimedia-ffmpeg"
 
+    # Grub stuff
+    "os-prober"
+
     # Hyprland family
     "hyprland"
     "hyprpaper"
     "hypridle"
     "hyprlock"
+    "hyprpolkitagent"
 
     # Power menu
     "wlogout"
@@ -63,6 +67,7 @@ packages=(
 
     # Clipboard
     "wl-clipboard"
+    "cliphist"
 
     # Explorer
     "nemo"
@@ -71,9 +76,10 @@ packages=(
     "onlyoffice-bin"
 
     # Media
-    "gwenview"
+    "loupe"
     "vlc"
     "spotify"
+    "vesktop"
 
     # Utilities
     "xdg-desktop-portal-gtk"
@@ -82,6 +88,9 @@ packages=(
     "btop"
     "base-devel"
     "git"
+    "imagemagick"
+    "gnome-disk-utility"
+    "easyeffects"
 
     # Internet
     "firefox"
@@ -104,6 +113,8 @@ packages=(
     # Fonts
     "adobe-source-code-pro-fonts"
     "noto-fonts-cjk"
+    "otf-font-awesome"
+    "ttf-nerd-fonts-symbols-mono"
 )
 
 echo "🔍 Checking and installing packages..."

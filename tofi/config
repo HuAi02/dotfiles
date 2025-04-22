@@ -13,7 +13,7 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "Source Code Pro"
+	font = "Adwaita Sans"
 
 	# Point size of text.
 	font-size = 24
@@ -152,7 +152,7 @@
 
 	# Maximum number of results to display.
 	# If 0, tofi will draw as many results as it can fit in the window.
-	num-results = 5
+	num-results = 0
 
 	# Spacing between results in pixels. Can be negative.
 	result-spacing = 25
@@ -189,10 +189,10 @@
 	corner-radius = 0
 
 	# Padding between borders and text. Can be pixels or a percentage.
-	padding-top = 35%
-	padding-bottom = 0
+	padding-top = 20%
+	padding-bottom = 0%
 	padding-left = 35%
-	padding-right = 35%
+	padding-right = 0%
 
 	# Whether to clip text drawing to be within the specified padding. This
 	# is mostly important for allowing text to be inset from the border,
@@ -256,7 +256,7 @@
 	# algorithm.
 	#
 	# Supported values: normal, prefix, fuzzy
-	matching-algorithm = normal
+	# matching-algorithm = normal
 
 	# If true, require a match to allow a selection to be made. If false,
 	# making a selection with no matches will print input to stdout.
@@ -279,13 +279,13 @@
 
 	# If true, use physical keys for shortcuts, regardless of the current
 	# keyboard layout. If false, use the current layout's keys.
-	physical-keybindings = true
+	# physical-keybindings = true
 
 	# Instead of printing the selected entry, print the 1-based index of
 	# the selection. This option has no effect in run or drun mode. If
 	# require-match is set to false, non-matching input will still result
 	# in the input being printed.
-	print-index = false
+	# print-index = false
 
 	# If true, directly launch applications on selection when in drun mode.
 	# Otherwise, just print the command line to stdout.

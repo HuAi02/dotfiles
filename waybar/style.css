@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Source Code Pro;
-    font-size: 14px;
+    font-family: Adwaita Mono;
+    font-size: 12px;
 }
 
 window#waybar {

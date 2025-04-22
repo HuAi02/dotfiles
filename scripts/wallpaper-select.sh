@@ -1,80 +1,55 @@
 #!/bin/bash
 
-# Hyprland Wallpaper Selector with History
-# Requires: tofi, hyprpaper, find, basename
+# Hyprland Wallpaper Selector with Fixed Filename (Convert to .jpg for Hyprlock)
+# Requires: tofi, hyprpaper, notify-send, find, basename, imagemagick
 
-# Configuration
-WALLPAPER_DIR="/home/huai/Pictures/Wallpapers"
+# Config
+WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 HYPRPAPER_CONF="$HOME/.config/hypr/hyprpaper.conf"
-HISTORY_FILE="$HOME/.cache/hyprland_wallpaper_history.txt"
-MAX_HISTORY=5  # Number of recent wallpapers to remember
+CURRENT_WALLPAPER="$WALLPAPER_DIR/wallpaper"
+LAST_SELECTED_FILE="$HOME/.cache/hyprland_last_wallpaper_path.txt"
+FIXED_JPG="$WALLPAPER_DIR/wallpaper.jpg"
 
-# Create necessary directories and files
-mkdir -p "$(dirname "$HISTORY_FILE")"
+# Create required dirs
 mkdir -p "$WALLPAPER_DIR"
-touch "$HISTORY_FILE"
+mkdir -p "$(dirname "$HYPRPAPER_CONF")"
+mkdir -p "$(dirname "$LAST_SELECTED_FILE")"
 
-# Get list of image files
-wallpapers=$(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \))
+# Get list of image files (exclude the current converted wallpaper)
+wallpapers=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) ! -name "wallpaper.jpg")
 
 if [ -z "$wallpapers" ]; then
     notify-send "Wallpaper Selector" "No wallpapers found in $WALLPAPER_DIR"
     exit 1
 fi
 
-# Prepare the selection menu with history
-{
-    echo "󰌍 Previous Wallpaper"
-    # Add current wallpapers
-    echo "$wallpapers" | while read -r line; do basename "$line"; done
-    # Add recent history (excluding duplicates and non-existent files)
-    grep -v '^$' "$HISTORY_FILE" | while read -r line; do
-        if [ -f "$line" ]; then
-            basename "$line"
-        fi
-    done
-} | tofi --prompt-text "Select Wallpaper: " | {
-    read -r selected
+# Prompt selection
+selected=$(echo "$wallpapers" | while read -r line; do basename "$line"; done | tofi --prompt-text "Select Wallpaper: ")
 
-    if [ -z "$selected" ]; then
-        exit 0
-    fi
+if [ -z "$selected" ]; then
+    exit 0
+fi
 
-    if [ "$selected" = "󰌍 Previous Wallpaper" ]; then
-        # Get the most recent previous wallpaper (second line in history)
-        previous_wallpaper=$(tail -n +2 "$HISTORY_FILE" | head -n 1)
-        if [ -n "$previous_wallpaper" ] && [ -f "$previous_wallpaper" ]; then
-            full_path="$previous_wallpaper"
-        else
-            notify-send "Wallpaper Selector" "No previous wallpaper found"
-            exit 1
-        fi
-    else
-        # Find the full path of the selected wallpaper
-        full_path=$(echo "$wallpapers" | grep -F "/$selected")
-        if [ -z "$full_path" ]; then
-            # Check if it's from history
-            full_path=$(grep -F "/$selected" "$HISTORY_FILE" | head -n 1)
-        fi
-    fi
+selected_path="$WALLPAPER_DIR/$selected"
 
-    if [ -n "$full_path" ] && [ -f "$full_path" ]; then
-        # Update history
-        temp_file=$(mktemp)
-        echo "$full_path" > "$temp_file"
-        grep -v -F "$full_path" "$HISTORY_FILE" | head -n $((MAX_HISTORY - 1)) >> "$temp_file"
-        mv "$temp_file" "$HISTORY_FILE"
+# Backup previous wallpaper.jpg (if you want to restore the original someday)
+if [ -f "$FIXED_JPG" ]; then
+    rm -f "$FIXED_JPG.bak"
+    cp "$FIXED_JPG" "$FIXED_JPG.bak"
+fi
 
-        # Update hyprpaper config
-        echo "preload = $full_path" > "$HYPRPAPER_CONF"
-        echo "wallpaper = ,$full_path" >> "$HYPRPAPER_CONF"
+# Convert selected image to wallpaper.jpg
+convert "$selected_path" "$FIXED_JPG"
 
-        # Restart hyprpaper to apply changes
-        killall hyprpaper || true
-        hyprpaper &
+# Store the path
+echo "$selected_path" > "$LAST_SELECTED_FILE"
 
-        notify-send "Wallpaper Changed" "$(basename "$full_path")"
-    else
-        notify-send "Wallpaper Selector" "Error: Could not find selected wallpaper"
-    fi
-}
+# Update hyprpaper config
+echo "preload = $FIXED_JPG" > "$HYPRPAPER_CONF"
+echo "wallpaper = ,$FIXED_JPG" >> "$HYPRPAPER_CONF"
+
+# Restart hyprpaper
+killall hyprpaper || true
+hyprpaper &
+
+notify-send "Wallpaper Changed" "$selected"
