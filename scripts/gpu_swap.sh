@@ -36,8 +36,9 @@ mv "$NEW_GRUB_CONF" "$CURRENT_GRUB_CONF"
 mv "$CURRENT_GRUB_CONF.old" "$NEW_GRUB_CONF"
 
 # Update GRUB configuration
-echo "Updating GRUB configuration..."
-grub-mkconfig -o /boot/grub/grub.cfg
+# echo "Updating GRUB configuration..."
+# grub-mkconfig -o /boot/grub/grub.cfg
+echo "Skipping GRUB configuration..."
 
 # Regenerate initramfs using mkinitcpio
 echo "Regenerating initramfs..."

@@ -16,3 +16,6 @@ fi
 # Run locale-gen
 echo "Running locale-gen..."
 sudo locale-gen && echo "✅ locale-gen completed successfully!"
+
+# Compatibility with dual boot, this fixes wrong Windows timing
+timedatectl set-local-rtc 0

@@ -24,11 +24,15 @@ packages=(
     "qt6-virtualkeyboard"
     "qt6-multimedia-ffmpeg"
 
+    # Grub stuff
+    "os-prober"
+
     # Hyprland family
     "hyprland"
     "hyprpaper"
     "hypridle"
     "hyprlock"
+    "hyprpolkitagent"
 
     # Power menu
     "wlogout"
@@ -40,6 +44,7 @@ packages=(
 
     # Runner
     "tofi"
+    "rofi"
 
     # Notification
     "dunst"
@@ -53,16 +58,26 @@ packages=(
     "libwireplumber"
     "pavucontrol"
 
+    # NVIDIA driver
+    "nvidia-dkms"
+    "nvidia-settings"
+
+    # Tablet driver
+    "otd-daemon"
+    "otd-gui"
+
     # CPU and fan control
     "auto-cpufreq"
     "nbfc-linux"
 
-    # Screenshot
+    # Screenshot & recording
     "grim"
     "slurp"
+    "obs-studio"
 
     # Clipboard
     "wl-clipboard"
+    "cliphist"
 
     # Explorer
     "nemo"
@@ -71,17 +86,38 @@ packages=(
     "onlyoffice-bin"
 
     # Media
-    "gwenview"
+    "loupe"
     "vlc"
+    "mpv"
+    "mpv-mpris"
     "spotify"
+    "vesktop"
+    "lutris"
+    "wine"
+    "qbittorrent"
 
     # Utilities
-    "xdg-desktop-portal-gtk"
+    "xdg-desktop-portal-hyprland"
+    "xdg-desktop-portal"
     "gnome-clocks"
     "gnome-calendar"
     "btop"
     "base-devel"
     "git"
+    "imagemagick"
+    "gnome-disk-utility"
+    "baobab"
+    "easyeffects"
+    "lsp-plugins"
+    "pamixer"
+    "unzip"
+    "zip"
+
+    # File sharing
+    "warp"
+
+    # ADB capabilities
+    "android-tools"
 
     # Internet
     "firefox"
@@ -100,10 +136,18 @@ packages=(
     # Chinese input
     "fcitx5"
     "fcitx5-chinese-addons"
+    "fcitx5-configtool"
 
     # Fonts
     "adobe-source-code-pro-fonts"
     "noto-fonts-cjk"
+    "noto-fonts"
+    "noto-fonts-extra"
+
+    # Emoji fonts
+    "noto-fonts-emoji"
+    "otf-font-awesome"
+    "ttf-nerd-fonts-symbols-mono"
 )
 
 echo "🔍 Checking and installing packages..."

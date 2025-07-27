@@ -1,28 +1,37 @@
 #!/bin/bash
 
 HYPR_DEST="$HOME/.config/hypr"
-SRC_DIR="$HOME/dotfiles/res"
-
-HYPR_SRC="$SRC_DIR/hyprland.conf"
+SRC_DIR="$HOME/dotfiles"
 
 # Check if destination files exist
 hypr_exists=false
 
 [ -f "$HYPR_DEST/hyprland.conf" ] && hypr_exists=true
 
-# Function to copy the hyprland.conf
+# Function to copy/symlink hypr configs
 copy_configs() {
-    echo "Checking if hyprland.conf exists in $HYPR_DEST..."
+    echo "Checking for hypr config files in $HYPR_DEST..."
+    mkdir -p "$HYPR_DEST"
 
-    # Check if the destination file exists
+    # Copy hyprland.conf if not exists
     if [ -f "$HYPR_DEST/hyprland.conf" ]; then
-        echo "Existing hyprland.conf found in $HYPR_DEST. Skipping copy."
+        echo "Existing hyprland.conf found. Skipping copy."
     else
-        echo "Copying hyprland.conf to $HYPR_DEST..."
-        mkdir -p "$HYPR_DEST"
-        cp "$HYPR_SRC" "$HYPR_DEST/hyprland.conf" && echo "✅ hyprland.conf copied!"
+        echo "Copying hyprland.conf..."
+        cp "$SRC_DIR/res/hyprland.conf" "$HYPR_DEST/hyprland.conf" && echo "✅ hyprland.conf copied!"
     fi
+
+    # Symlink other hypr configs
+    for file in hypridle.conf hyprlock.conf hyprpaper.conf; do
+        if [ -f "$HYPR_DEST/$file" ]; then
+            echo "Existing $file found. Skipping symlink."
+        else
+            echo "Creating symlink for $file..."
+            ln -s "$SRC_DIR/hypr/$file" "$HYPR_DEST/$file" && echo "✅ $file symlinked!"
+        fi
+    done
 }
+
 
 # Function to create symlinks
 copy_symlinks() {
@@ -30,6 +39,9 @@ copy_symlinks() {
 
     # Define an array of directories to loop over
     declare -A dirs=(
+        ["alacritty"]="$HOME/.config/alacritty"
+        ["dunst"]="$HOME/.config/dunst"
+        ["mpv"]="$HOME/.config/mpv"
         ["waybar"]="$HOME/.config/waybar"
         ["tofi"]="$HOME/.config/tofi"
         ["fastfetch"]="$HOME/.config/fastfetch"

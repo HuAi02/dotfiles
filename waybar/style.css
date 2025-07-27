@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Source Code Pro;
-    font-size: 14px;
+    font-family: "Adwaita Mono";
+    font-size: 12px;
 }
 
 window#waybar {
@@ -44,13 +44,30 @@ button {
 #idle_inhibitor,
 #workspaces,
 #power-profiles-daemon{
-    padding: 0 10px;
-    margin: 5 5px;
     color: white;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, .2);
-    border-radius: 10px;
+    border-radius: 8px;
     border: 0px solid white;
+}
+
+#clock,
+#cpu,
+#memory,
+#workspaces{
+    padding: 0 10px;
+    margin: 0 5 3 0px;
+}
+
+#battery,
+#backlight,
+#pulseaudio,
+#custom-mpris,
+#tray,
+#idle_inhibitor,
+#power-profiles-daemon{
+    padding: 0 10px;
+    margin: 0 0 3 5px;
 }
 
 #battery.warning {
