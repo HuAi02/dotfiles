@@ -8,7 +8,11 @@ MICROPHONE_ID=$(wpctl status -n | grep -i 'alsa_input' | grep -oP '\d+' | head -
 
 # Example of setting the volume for the speaker to 50%
 if [ -n "$SPEAKER_ID" ]; then
+<<<<<<< HEAD
     wpctl set-volume $SPEAKER_ID 25%
+=======
+    wpctl set-volume $SPEAKER_ID 35%
+>>>>>>> 6738384f92357b151597d9981b61f4672133e85c
 fi
 
 # Example of setting the volume for the microphone to 80%

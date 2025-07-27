@@ -92,9 +92,12 @@ packages=(
     "mpv-mpris"
     "spotify"
     "vesktop"
+<<<<<<< HEAD
     "lutris"
     "wine"
     "qbittorrent"
+=======
+>>>>>>> 6738384f92357b151597d9981b61f4672133e85c
 
     # Utilities
     "xdg-desktop-portal-hyprland"
@@ -106,6 +109,7 @@ packages=(
     "git"
     "imagemagick"
     "gnome-disk-utility"
+<<<<<<< HEAD
     "baobab"
     "easyeffects"
     "lsp-plugins"
@@ -118,6 +122,9 @@ packages=(
 
     # ADB capabilities
     "android-tools"
+=======
+    "easyeffects"
+>>>>>>> 6738384f92357b151597d9981b61f4672133e85c
 
     # Internet
     "firefox"
@@ -141,11 +148,14 @@ packages=(
     # Fonts
     "adobe-source-code-pro-fonts"
     "noto-fonts-cjk"
+<<<<<<< HEAD
     "noto-fonts"
     "noto-fonts-extra"
 
     # Emoji fonts
     "noto-fonts-emoji"
+=======
+>>>>>>> 6738384f92357b151597d9981b61f4672133e85c
     "otf-font-awesome"
     "ttf-nerd-fonts-symbols-mono"
 )
