@@ -1,9 +1,9 @@
 {
     "name": "float",
     "layer": "top",
-    "position": "top",
+    "position": "right",
     "mode": "dock",
-    "height": 15,
+    "width": 50,
     "exclusive": false,
     "passthrough": true,
     "gtk-layer-shell": true,
@@ -11,66 +11,49 @@
     "margin-right": 0,
     "margin-left": 0,
     "margin-bottom": 0,
-    "modules-left": ["clock#time", "clock#date", "cpu", "memory", "hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio#speaker", "pulseaudio#microphone", "backlight", "battery", "tray"],
+    "modules-left": ["clock#date", "clock#time", "idle_inhibitor", "tray"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["pulseaudio#speaker", "pulseaudio#microphone", "backlight", "battery", "memory", "cpu"],
 
     "hyprland/window": {
         "max-length": 100,
         "format": "{title}"
     },
 
-    "battery": {
-        "on-click": "flatpak run com.github.d4nj1.tlpui",
-        "states": {
-            "good": 80,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": "󱘖 {capacity}%",
-        "format-full": "{icon} Full",
-        "format-alt": "{icon} {time}",
-        "format-icons": [
-            "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾",
-            "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+    "battery": { // 6 space max size preoccupied
+      "format": "  {icon}\n{capacity:02d}%",
+      "format-icons": {
+        "default": [
+          "",
+          "",
+          "",
+          ""
         ],
-        "format-time": "{H}h {M}min",
-        "tooltip": true,
-        "tooltip-format": "{timeTo} | {power}W",
-
-        "class": "battery",
-        "critical-threshold": 15,
-        "warning-threshold": 30
-    },
-
-    "clock#time": {
-        "interval": 1,
-        "format": " {:%H:%M}", // or remove seconds: "{:%H:%M}"
-        "tooltip": false,
-        "on-click": "gnome-clocks"
+        "plugged": ""
+      },
+      "interval": 5,
+      "states": {
+        "warning": 25,
+        "critical": 10
+      },
+      "tooltip": "Battery level",
+      "on-click": "gnome-power-statistics",
     },
 
     "clock#date": {
-        "interval": 36000,
-        "format": " {:%A, %d %B}",
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-click": "gnome-calendar",
-        "calendar": {
-            "mode": "month",
-            "format": {
-                "months": "<span color='#ffead3'><b>{}</b></span>",
-                "days": "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-            }
-        }
+      "format": "{:%d\n%m}",
+      "tooltip": false,
+      "on-click": "gnome-calendar"
+    },
+
+    "clock#time": {
+      "format": "{:%H\n%M}",
+      "tooltip": false,
+      "on-click": "gnome-clocks"
     },
 
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "\n{icon}",
         "format-icons": {
             "activated": "",
             "deactivated": ""
@@ -78,45 +61,30 @@
     },
 
     "tray": {
-        "icon-size": 14,
-        "spacing": 10
-    },
-
-    "backlight": {
-        // "device": "acpi_video1", // optional, use if auto-detect fails
-        "format": "{icon} {percent}%",
-        "tooltip-format": "Backlight | {percent}%",
-        "tooltip": true,
-        "format-icons": [
-            "", "", "", "", "",
-            "", "", "", "", "",
-            "", "", "", "", ""
-        ],
-        "on-scroll-up": "brightnessctl set +5%",
-        "on-scroll-down": "brightnessctl set 5%-",
-        "smooth-scrolling-threshold": 1,
-        "icon-size": 10
+        "icon-size": 16,
+        "spacing": 15
     },
 
     "cpu": {
-        "format": "󰍛 {usage}%",
+        "format": "  󰍛\n{usage:02d}%",
         "interval": 1,
         "min-length": 5,
-        "tooltip": false,
-        "on-click": "alacritty -e btop"
+        "tooltip": "CPU usage",
+        "on-click": "kitty btop"
     },
 
     "memory": {
         "interval": 10,
-        "format": "󰾆 {percentage}%",
+        "format": "  󰾆\n{percentage:02d}%",
         "tooltip": true,
-        "on-click": "alacritty -e btop"
+        "on-click": "kitty btop"
     },
 
     "pulseaudio#speaker": {
         "scroll-step": 1,
-        "format": "󰕾 {volume}%",
-        "format-muted": "󰖁 Muted",
+        "format": "  󰕾\n{volume:02d}%",
+        "format-muted": "    󰖁\nMuted",
+        "format-bluetooth": "  \n{volume:02d}%",
         "on-click": "pamixer --toggle-mute",
         "on-click-right": "pavucontrol -t 3",
         "on-scroll-up": "pamixer --increase 1",
@@ -125,9 +93,9 @@
     },
 
     "pulseaudio#microphone": {
-        "format": " {source_volume}%",
-        "format-source": " {source_volume}%",
-        "format-source-muted": " Muted",
+        "format": "  \n{source_volume:02d}%",
+        "format-source": "  \n{source_volume:02d}%",
+        "format-source-muted": "    \nMuted",
         "on-click": "pamixer --default-source --toggle-mute",
         "on-click-right": "pavucontrol -t 4",
         "on-scroll-up": "pamixer --default-source --increase 1",
@@ -136,21 +104,38 @@
         "scroll-step": 1
     },
 
+    "backlight": {
+      // "device": "acpi_video1", // optional, use if auto-detect fails
+      "format": "  {icon}\n{percent:02d}%",
+      "tooltip-format": "Backlight | {percent:02d}%",
+      "tooltip": true,
+      "format-icons": [
+        "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", ""
+      ],
+      "on-scroll-up": "brightnessctl set +5%",
+      "on-scroll-down": "brightnessctl set 5%-",
+      "smooth-scrolling-threshold": 1,
+      "icon-size": 10
+    },
+
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "1": "一",
-            "2": "二",
-            "3": "三",
-            "4": "四",
-            "5": "五",
-            "6": "六",
-            "7": "七",
-            "8": "八",
-            "9": "九",
-            "10": "十",
-            "active": "今",
+            "1": "壹",
+            "2": "貳",
+            "3": "叁",
+            "4": "肆",
+            "5": "伍",
+            "6": "陸",
+            "7": "柒",
+            "8": "捌",
+            "9": "玖",
+            "10": "拾",
             "default": "囧"
-        }
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1"
     }
 }

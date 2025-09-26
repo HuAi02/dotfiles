@@ -44,7 +44,7 @@
     offset = (0, 20)
 
     # Scale factor. It is auto-detected if value is 0.
-    scale = 1.2
+    scale = 1
 
     # Maximum number of notification (0 means no limit)
     notification_limit = 20
@@ -108,10 +108,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 2
+    frame_width = 0
 
     # Defines color of the frame around the notification window.
-    frame_color = "#373737"
+    frame_color = "#00000040"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -338,31 +338,25 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
-    timeout = 10
-    # Icon for notifications with low urgency
+    background = "#00000080"   # semi-transparent dark gray
+    foreground = "#AAAAAA"     # light gray text
+    timeout = 5
     default_icon = dialog-information
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#00000080"   # slightly lighter dark gray
+    foreground = "#FFFFFF"     # white text
     timeout = 10
     override_pause_level = 30
-    # Icon for notifications with normal urgency
     default_icon = dialog-information
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
-    frame_color = "#ff0000"
+    background = "#00000080"   # almost solid dark gray (stronger alpha)
+    foreground = "#FFFFFF"     # white text
+    frame_color = "#FF4444"    # red border for emphasis
     timeout = 0
     override_pause_level = 60
-    # Icon for notifications with critical urgency
     default_icon = dialog-warning
 
 # Every section that isn't one of the above is interpreted as a rules to
