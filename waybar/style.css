@@ -1,14 +1,14 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: Adwaita Mono;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.0);
+    background-color: rgba(0, 0, 0, .8);
     border-radius: 0px;
     border: 0px solid white;
-    padding: 5px 10px;
+    padding: 0px;
     margin: 0px; /* Adds space around Waybar */
 }
 
@@ -45,28 +45,36 @@ button {
 #workspaces,
 #power-profiles-daemon{
     color: white;
-    background-color: rgba(0, 0, 0, .5);
-    border-radius: 15px;
-    border: 1px solid gray;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 100px;
+    border: 0px solid #ffffff;
 }
 
 #clock,
 #cpu,
 #memory,
 #workspaces{
-    padding: 0 10px;
-    margin: 0 5 0 0px;
+    padding: 5 0px;
+    margin: 0px;
+}
+
+#clock,
+#workspaces label{
+    font-size: 18px;
 }
 
 #battery,
 #backlight,
 #pulseaudio,
 #custom-mpris,
-#tray,
 #idle_inhibitor,
 #power-profiles-daemon{
-    padding: 0 10px;
-    margin: 0 0 0 5px;
+    padding: 5 0px;
+    margin: 0px;
+}
+
+#tray{
+    padding: 10 0px;
 }
 
 #battery.warning {
@@ -77,9 +85,23 @@ color: orange;
 color: red;
 }
 
+/* All workspace buttons default = gray */
+#workspaces button {
+    color: #888888;   /* light gray */
+}
+
+/* Active workspace = white */
+#workspaces button.active {
+    color: #ffffff;   /* white */
+}
+
+/* Urgent workspace = red (example) */
+#workspaces button.urgent {
+    color: #ff5555;
+}
 #window {
-    padding: 0 5px;
-    margin: 5 5px;
+    padding: 0px;
+    margin: 0px;
     color: white;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 1);

@@ -12,7 +12,7 @@ selected_config=$(printf "%s\n" "${conf_files[@]}" | tofi --prompt-text "open:")
 # Check if a selection was made
 if [ -n "$selected_config" ]; then
   # Open the selected config file in neovim
-  alacritty -e nvim "$CONFIG_DIR/$selected_config"
+  kitty nvim "$CONFIG_DIR/$selected_config"
 else
   echo "No selection made. Exiting..."
   exit 1

@@ -15,13 +15,14 @@ ROFI_THEME="$HOME/.config/rofi/themes/wallpaper-select-theme.rasi"
 mkdir -p "$WALLPAPER_DIR" "$CACHE_DIR" "$(dirname "$HYPRPAPER_CONF")"
 
 # Rofi override style for icon size
-rofi_override=""
+rofi_override='element-icon { size: 600px; } window { width: 900px; height: 680px; }'
+# rofi_override=""
 
 # Generate preview icons
 for img in "$WALLPAPER_DIR"/*.{jpg,jpeg,png,webp}; do
   [ -f "$img" ] || continue
   filename=$(basename "$img")
-  [ -f "$CACHE_DIR/$filename" ] || convert -strip "$img" -thumbnail 500x500^ -gravity center -extent 500x500 "$CACHE_DIR/$filename"
+  [ -f "$CACHE_DIR/$filename" ] || convert -strip "$img" -thumbnail 1280x720^ -gravity center -extent 1280x720 "$CACHE_DIR/$filename"
 done
 
 # Rofi image selector with previews
