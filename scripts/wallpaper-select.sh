@@ -13,7 +13,7 @@ mkdir -p "$WALLPAPER_DIR" "$CACHE_DIR" "$(dirname "$HYPRPAPER_CONF")"
 # Rofi override:
 rofi_override='
 window {
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.8);
     width: 15%;
     height: 100%;
     location: west;
