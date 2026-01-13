@@ -68,8 +68,11 @@ convert "$selected_path" "$FIXED_JPG"
 echo "$selected_path" >"$LAST_SELECTED_FILE"
 # Write hyprpaper config
 cat >"$HYPRPAPER_CONF" <<EOF
-preload = $FIXED_JPG
-wallpaper = ,$FIXED_JPG
+wallpaper {
+    monitor = 
+    path = $FIXED_JPG
+    fit_mode = cover
+}
 EOF
 # Restart hyprpaper
 killall hyprpaper 2>/dev/null
