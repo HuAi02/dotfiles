@@ -31,7 +31,7 @@
           "",
           ""
         ],
-        "plugged": ""
+        "plugged": " "
       },
       "interval": 5,
       "states": {
@@ -87,7 +87,7 @@
         "scroll-step": 1,
         "format": "  󰕾\n{volume:02d}%",
         "format-muted": "    󰖁\nMuted",
-        "format-bluetooth": "  \n{volume:02d}%",
+        "format-bluetooth": " \n{volume:02d}%",
         "on-click": "pamixer --toggle-mute",
         "on-click-right": "pavucontrol -t 3",
         "on-scroll-up": "pamixer --increase 1",

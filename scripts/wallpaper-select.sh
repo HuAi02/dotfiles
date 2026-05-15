@@ -73,6 +73,8 @@ wallpaper {
     path = $FIXED_JPG
     fit_mode = cover
 }
+
+splash = false
 EOF
 # Restart hyprpaper
 killall hyprpaper 2>/dev/null
