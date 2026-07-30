@@ -3,7 +3,7 @@
     "layer": "top",
     "position": "right",
     "mode": "dock",
-    "width": 50,
+    "width": 67,
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
@@ -22,57 +22,58 @@
         "format": "{title}"
     },
 
-    "battery": { // 6 space max size preoccupied
-      "format": "  {icon}\n{capacity:02d}%",
-      "format-icons": {
-        "default": [
-          "",
-          "",
-          "",
-          ""
-        ],
-        "plugged": " "
-      },
-      "interval": 5,
-      "states": {
-        "warning": 25,
-        "critical": 10
-      },
-      "tooltip": "Battery level",
-      "on-click": "gnome-power-statistics",
+    "battery": {
+        "format": "  {icon}\n{capacity:02d}%",
+        "format-icons": {
+            "default": ["", "", "", ""],
+            "plugged": ""
+        },
+        "interval": 5,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": true,
+        "tooltip-format": "Battery: {capacity}%",
+        "on-click": "gnome-power-statistics"
     },
 
     "clock#date": {
-      "format": "{:%d\n%m}",
-      "tooltip": false,
-      "on-click": "gnome-calendar"
+        "format": "{:%d\n%m}",
+        "tooltip-format": "{:%A, %B %d %Y}",
+        "interval": 30,
+        "on-click": "gnome-calendar"
     },
 
     "clock#time": {
-      "format": "{:%H\n%M}",
-      "tooltip": false,
-      "on-click": "gnome-clocks"
+        "format": "{:%H\n%M}",
+        "tooltip": false,
+        "on-click": "gnome-clocks",
+        "interval": 1
     },
 
     "idle_inhibitor": {
-        "format": "\n{icon}",
+        "format": "{icon}",
         "format-icons": {
             "activated": "",
             "deactivated": ""
         },
-        "start-activated": true
+        "start-activated": true,
+        "tooltip": true,
+        "tooltip-format": "Idle inhibition: {status}"
     },
 
     "tray": {
-        "icon-size": 16,
-        "spacing": 15
+        "icon-size": 18,
+        "spacing": 12
     },
 
     "cpu": {
         "format": "  󰍛\n{usage:02d}%",
         "interval": 1,
-        "min-length": 5,
-        "tooltip": "CPU usage",
+        "min-length": 6,
+        "tooltip": true,
+        "tooltip-format": "CPU: {usage:02d}%\nLoad: {load:.1f}",
         "on-click": "kitty btop"
     },
 
@@ -80,25 +81,26 @@
         "interval": 10,
         "format": "  󰾆\n{percentage:02d}%",
         "tooltip": true,
+        "tooltip-format": "RAM: {percentage:02d}%\n{used:0.1f}GiB / {total:0.1f}GiB",
         "on-click": "kitty btop"
     },
 
     "pulseaudio#speaker": {
         "scroll-step": 1,
         "format": "  󰕾\n{volume:02d}%",
-        "format-muted": "    󰖁\nMuted",
-        "format-bluetooth": " \n{volume:02d}%",
+        "format-muted": "󰖁 Muted",
+        "format-bluetooth": " {volume:02d}%",
         "on-click": "pamixer --toggle-mute",
         "on-click-right": "pavucontrol -t 3",
         "on-scroll-up": "pamixer --increase 1",
         "on-scroll-down": "pamixer --decrease 1",
-        "tooltip-format": "Speaker | {volume}%"
+        "tooltip-format": "Speaker | {volume}%\n{desc}"
     },
 
     "pulseaudio#microphone": {
         "format": "  \n{source_volume:02d}%",
         "format-source": "  \n{source_volume:02d}%",
-        "format-source-muted": "    \nMuted",
+        "format-source-muted": " Muted",
         "on-click": "pamixer --default-source --toggle-mute",
         "on-click-right": "pavucontrol -t 4",
         "on-scroll-up": "pamixer --default-source --increase 1",
@@ -108,19 +110,14 @@
     },
 
     "backlight": {
-      "device": "intel_backlight", // optional, use if auto-detect fails
-      "format": "  {icon}\n{percent:02d}%",
-      "tooltip-format": "Backlight | {percent:02d}%",
-      "tooltip": true,
-      "format-icons": [
-        "", "", "", "",
-        "", "", "", "", "",
-        "", "", "", "", ""
-      ],
-      "on-scroll-up": "brightnessctl set +5%",
-      "on-scroll-down": "brightnessctl set 5%-",
-      "smooth-scrolling-threshold": 1,
-      "icon-size": 10
+        "device": "intel_backlight",
+        "format": "  {icon}\n{percent:02d}%",
+        "tooltip-format": "Brightness: {percent}%",
+        "tooltip": true,
+        "format-icons": ["", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "smooth-scrolling-threshold": 1
     },
 
     "hyprland/workspaces": {

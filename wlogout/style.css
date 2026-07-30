@@ -1,56 +1,45 @@
-* {
-	background-image: none;
-	box-shadow: none;
-}
-
 window {
-	background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 button {
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 20%;
-    background-color: rgba(255, 255, 255, 0.1);
-    animation: gradient_f 20s ease-in infinite;
-    border-radius: 80px; /* Increased border radius for a more rounded look */
-    border: 0px;
-    transition: all 0.2s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
-}
-
-button:focus {
     background-size: 22%;
-    border: 0px;
+    background-color: rgba(30, 30, 46, 0.7);
+    border: 2px solid rgba(205, 214, 244, 0.15);
+    border-radius: 16px;
+    margin: 10px;
+    padding: 12px 20px;
+    min-width: 130px;
+    min-height: 120px;
+    color: #cdd6f4;
+    font-size: 14px;
+    font-family: "Symbols Nerd Font", "Font Awesome 7 Free", "Font Awesome 7 Free Solid", monospace;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    opacity: 1;
-    color: #cdd6f4;
-    background-size: 30%;
-    margin: 0px;
-    border-radius: 80px;
+    background-color: rgba(69, 71, 90, 0.9);
+    border-color: rgba(137, 180, 250, 0.5);
+    color: #b4befe;
+    box-shadow: 0 0 30px rgba(137, 180, 250, 0.2), 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Adjust the size of the icon or content inside the button */
-button span {
-    font-size: 1.2em; /* Increase the font size */
+button:active {
+    background-color: rgba(49, 50, 68, 0.9);
+    border-color: rgba(137, 180, 250, 0.2);
 }
 
 #logout {
-margin: 10px;
-border-radius: 20px;
-background-image: image(url("logout.png"));
+    background-image: image(url("logout.png"));
 }
 
 #shutdown {
-margin: 10px;
-border-radius: 20px;
-background-image: image(url("power.png"));
+    background-image: image(url("power.png"));
 }
 
 #reboot {
-margin: 10px;
-border-radius: 20px;
-background-image: image(url("restart.png"));
+    background-image: image(url("restart.png"));
 }
