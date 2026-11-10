@@ -89,8 +89,8 @@ button:hover {
 
 #idle_inhibitor {
   color: rgba(255, 255, 255, 0.35);
-  padding: 4px;
-  margin: 0;
+  padding: 4px 0;
+  margin: 0 4px;
   font-size: 13px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -119,10 +119,11 @@ button:hover {
 #memory,
 #battery,
 #backlight,
+#custom-external-brightness,
 #pulseaudio {
   background: transparent;
   border-radius: 10px;
-  padding: 4px;
+  padding: 4px 0;
   margin: 1px 4px;
   min-width: 40px;
   transition: all 0.2s ease;
@@ -132,6 +133,7 @@ button:hover {
 #memory:hover,
 #battery:hover,
 #backlight:hover,
+#custom-external-brightness:hover,
 #pulseaudio:hover {
   background: rgba(255, 255, 255, 0.06);
 }
@@ -157,7 +159,8 @@ button:hover {
   background: rgba(239, 68, 68, 0.15);
 }
 
-#backlight {
+#backlight,
+#custom-external-brightness {
   color: #fcd34d;
 }
 
@@ -175,4 +178,11 @@ tooltip {
 tooltip label {
   color: rgba(255, 255, 255, 0.85);
   font-size: 13px;
+}
+
+/* Custom modules wrap their label in an extra box, so without an explicit
+   width the label only gets its minimum width instead of filling the bar.
+   Match the other modules' full width so the icon/value lines center. */
+#custom-external-brightness {
+  min-width: 59px;
 }

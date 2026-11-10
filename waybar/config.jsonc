@@ -15,7 +15,7 @@
     "margin-bottom": 0,
     "modules-left": ["clock#date", "clock#time", "idle_inhibitor", "tray"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio#speaker", "pulseaudio#microphone", "backlight", "battery", "memory", "cpu"],
+    "modules-right": ["pulseaudio#speaker", "pulseaudio#microphone", "backlight", "custom/external-brightness", "battery", "memory", "cpu"],
 
     "hyprland/window": {
         "max-length": 100,
@@ -23,11 +23,13 @@
     },
 
     "battery": {
-        "format": "  {icon}\n{capacity:02d}%",
+        "format": "{icon}\n{capacity:02d}%",
         "format-icons": {
-            "default": ["", "", "", ""],
-            "plugged": ""
+            "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂃"],
+            "plugged": "󰂄"
         },
+        "justify": "center",
+        "align": 0.5,
         "interval": 5,
         "states": {
             "warning": 25,
@@ -55,9 +57,11 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "󰅶",
+            "deactivated": "󰾪"
         },
+        "justify": "center",
+        "align": 0.5,
         "start-activated": true,
         "tooltip": true,
         "tooltip-format": "Idle inhibition: {status}"
@@ -69,7 +73,9 @@
     },
 
     "cpu": {
-        "format": "  󰍛\n{usage:02d}%",
+        "format": "󰻠\n{usage:02d}%",
+        "justify": "center",
+        "align": 0.5,
         "interval": 1,
         "min-length": 6,
         "tooltip": true,
@@ -79,7 +85,9 @@
 
     "memory": {
         "interval": 10,
-        "format": "  󰾆\n{percentage:02d}%",
+        "format": "󰍛\n{percentage:02d}%",
+        "justify": "center",
+        "align": 0.5,
         "tooltip": true,
         "tooltip-format": "RAM: {percentage:02d}%\n{used:0.1f}GiB / {total:0.1f}GiB",
         "on-click": "kitty btop"
@@ -87,9 +95,12 @@
 
     "pulseaudio#speaker": {
         "scroll-step": 1,
-        "format": "  󰕾\n{volume:02d}%",
-        "format-muted": "󰖁 Muted",
-        "format-bluetooth": " {volume:02d}%",
+        "format": "{icon}\n{volume:02d}%",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "format-muted": "󰝟\nMute",
+        "format-bluetooth": "󰂯\n{volume:02d}%",
+        "justify": "center",
+        "align": 0.5,
         "on-click": "pamixer --toggle-mute",
         "on-click-right": "pavucontrol -t 3",
         "on-scroll-up": "pamixer --increase 1",
@@ -98,9 +109,11 @@
     },
 
     "pulseaudio#microphone": {
-        "format": "  \n{source_volume:02d}%",
-        "format-source": "  \n{source_volume:02d}%",
-        "format-source-muted": " Muted",
+        "format": "󰍬\n{source_volume:02d}%",
+        "format-source": "󰍬\n{source_volume:02d}%",
+        "format-source-muted": "󰍭\nMute",
+        "justify": "center",
+        "align": 0.5,
         "on-click": "pamixer --default-source --toggle-mute",
         "on-click-right": "pavucontrol -t 4",
         "on-scroll-up": "pamixer --default-source --increase 1",
@@ -111,13 +124,27 @@
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "  {icon}\n{percent:02d}%",
+        "format": "{icon}\n{percent:02d}%",
+        "justify": "center",
+        "align": 0.5,
         "tooltip-format": "Brightness: {percent}%",
         "tooltip": true,
-        "format-icons": ["", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        "format-icons": ["󰃞", "󰃟", "󰃝", "󰃠"],
         "on-scroll-up": "brightnessctl set +5%",
         "on-scroll-down": "brightnessctl set 5%-",
         "smooth-scrolling-threshold": 1
+    },
+
+    "custom/external-brightness": {
+        "exec": "bash ~/dotfiles/scripts/external_brightness.sh get",
+        "interval": 5,
+        "return-type": "json",
+        "signal": 4,
+        "justify": "center",
+        "align": 0.5,
+        "on-scroll-up": "bash ~/dotfiles/scripts/external_brightness.sh up; pkill -RTMIN+4 waybar",
+        "on-scroll-down": "bash ~/dotfiles/scripts/external_brightness.sh down; pkill -RTMIN+4 waybar",
+        "tooltip": true
     },
 
     "hyprland/workspaces": {

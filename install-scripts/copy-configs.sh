@@ -5,20 +5,30 @@ SRC_DIR="$HOME/dotfiles"
 
 # Check if destination files exist
 hypr_exists=false
+hypr_lua_exists=false
 
 [ -f "$HYPR_DEST/hyprland.conf" ] && hypr_exists=true
+[ -f "$HYPR_DEST/hyprland.lua" ] && hypr_lua_exists=true
 
 # Function to copy/symlink hypr configs
 copy_configs() {
     echo "Checking for hypr config files in $HYPR_DEST..."
     mkdir -p "$HYPR_DEST"
 
-    # Copy hyprland.conf if not exists
+    # Copy hyprland.conf if not exists (legacy hyprlang, kept as fallback)
     if [ -f "$HYPR_DEST/hyprland.conf" ]; then
         echo "Existing hyprland.conf found. Skipping copy."
     else
         echo "Copying hyprland.conf..."
         cp "$SRC_DIR/res/hyprland.conf" "$HYPR_DEST/hyprland.conf" && echo "✅ hyprland.conf copied!"
+    fi
+
+    # Symlink hyprland.lua (lua config takes precedence over .conf on >=0.55)
+    if [ -f "$HYPR_DEST/hyprland.lua" ]; then
+        echo "Existing hyprland.lua found. Skipping symlink."
+    else
+        echo "Creating symlink for hyprland.lua..."
+        ln -s "$SRC_DIR/hypr/hyprland.lua" "$HYPR_DEST/hyprland.lua" && echo "✅ hyprland.lua symlinked!"
     fi
 
     # Symlink other hypr configs
@@ -69,7 +79,7 @@ copy_symlinks() {
 }
 
 # If neither file exists, just copy and exit
-if ! $hypr_exists && ! $zshrc_exists; then
+if ! $hypr_exists && ! $hypr_lua_exists; then
     echo "No existing configs found. Creating and copying new configs..."
     copy_configs
     copy_symlinks
@@ -79,6 +89,7 @@ fi
 # If one or both files exist, prompt user
 echo "Existing config(s) detected:"
 $hypr_exists && echo "- hyprland.conf"
+$hypr_lua_exists && echo "- hyprland.lua"
 
 echo ""
 echo "What would you like to do?"
